@@ -359,20 +359,20 @@ body {
 ===================================================== */
 
 #screen3 {
-  position: fixed;
-  inset: 0;
+  position: relative;
+
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  height: auto;
+
+  overflow: visible;
 
   display: none;
   align-items: center;
   justify-content: center;
-}
 
-#screen3.active {
-
-    display: flex;
+  padding: 80px 0;
+  box-sizing: border-box;
 }
 
 
@@ -444,11 +444,15 @@ body {
   z-index: 10;
 
   width: 100%;
+  max-width: 900px;
+
+  /* ESTA es la altura máxima de la carta */
   max-height: 70vh;
 
   padding: 35px;
   box-sizing: border-box;
 
+  /* Scroll independiente de la carta */
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -458,7 +462,7 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  touch-action: pan-y;
 }
 
 
@@ -1011,42 +1015,47 @@ body {
 ===================================================== */
 
 @media (max-width: 700px) {
-  body {
-    overflow: hidden;
+    body {
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   #screen3 {
-    position: fixed;
-    inset: 0;
+    position: relative;
 
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 
-    overflow: hidden;
+    overflow: visible;
 
-    align-items: center;
-    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 100px;
+
+    align-items: flex-start;
   }
 
   #contenidoCarta {
+    position: relative;
+
     width: 88vw;
-    max-width: none;
+    max-width: 900px;
 
-    height: 82vh;
+    height: auto;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 20px auto 50px;
   }
 
   .card {
     width: 100%;
-    height: 100%;
 
-    max-height: none;
+    /* La carta tiene su propio tamaño */
+    height: 70vh;
+    max-height: 70vh;
 
     padding: 25px 20px;
 
+    /* SCROLL INTERNO */
     overflow-y: auto;
     overflow-x: hidden;
 
