@@ -31,7 +31,8 @@ body {
 
 body {
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
@@ -359,14 +360,12 @@ body {
 
 #screen3 {
 
-    position: fixed;
+    position: relative;
 
-    inset: 0;
+    width: 100%;
+    min-height: 100vh;
 
-    width: 100vw;
-    height: 100vh;
-
-    overflow: hidden;
+    overflow: visible;
 
     display: none;
 
@@ -1036,7 +1035,31 @@ body {
 ===================================================== */
 
 @media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 
+    #screen3 {
+        min-height: 100vh;
+        height: auto;
+
+        padding-top: 70px;
+        padding-bottom: 40px;
+
+        overflow: visible;
+    }
+
+    #contenidoCarta {
+        width: 88vw;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        max-height: none;
+        overflow: visible;
+    }
 
     /* =============================
        PORTADA
